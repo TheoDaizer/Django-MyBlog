@@ -1,0 +1,18 @@
+{% extends "base/base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block body %}
+    <h2><a href="{% url 'edit_post_by_id' pk=post.pk %}">{{ post.title }}</a></h2>
+    <p>{{ post.description }}</p>
+    <p>{{ post.title }}</p>
+    <p>{{ post.post }}</p>
+    <p>Автор: {{ post.autor }}</p>
+    <p>Дата создания {{ post.date_creation }}</p>
+    <p>
+        {% if post.date_creation != post.date_update %}
+            Дата изменения {{ post.date_update }}
+        {% endif %}
+    </p>
+
+{% endblock %}
